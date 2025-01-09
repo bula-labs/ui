@@ -1,0 +1,37 @@
+{
+    "name": "docs",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vue-tsc -b && vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "vue": "catalog:v1",
+        "vue-router": "catalog:v1"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "catalog:v1",
+        "@vue/tsconfig": "catalog:v1",
+        "typescript": "catalog:v1",
+        "vite": "catalog:v1",
+        "vue-tsc": "catalog:v1"
+    },
+    "optionalDependencies": {
+        "@types/mdast": "^4.0.4",
+        "gray-matter": "^4.0.3",
+        "marked": "^15.0.6",
+        "mdast": "^3.0.0",
+        "rehype-raw": "^7.0.0",
+        "rehype-stringify": "^10.0.1",
+        "remark-frontmatter": "^5.0.0",
+        "remark-gfm": "^4.0.0",
+        "remark-parse": "^11.0.0",
+        "remark-rehype": "^11.1.1",
+        "to-vfile": "^8.0.0",
+        "unified": "^11.0.5",
+        "vfile": "^6.0.3"
+    }
+}

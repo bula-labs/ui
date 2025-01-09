@@ -1,0 +1,13 @@
+{
+  "name": "shakhboz-components",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Test\""
+  },
+  "devDependencies": {
+    "eslint": "^9.17.0",
+    "prettier": "^3.4.2"
+  }
+}
