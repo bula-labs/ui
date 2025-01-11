@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { ModalContext } from "./types";
 
+import ModalOverlay from "@/components/modal/ModalOverlay.vue";
 import { inject } from "vue";
 import { ContextKey } from "./config";
 
@@ -11,16 +12,20 @@ if (!context) {
 </script>
 
 <template>
-  <Teleport to="body" v-if="context.isOpen">
+  <Teleport v-if="context.isOpen.value" to="body">
     <section id="modal-wrapper" class="modal-wrapper">
-      <div
-        id="modal-overlay"
-        class="modal-overlay"
-        v-if="!!context.overlay && context.isOpen"
-      ></div>
+      <ModalOverlay v-if="!!context.overlay" />
 
       <div class="modal-content">
+        <header>
+          <slot name="header" />
+        </header>
+
         <slot />
+
+        <footer>
+          <slot name="footer" />
+        </footer>
       </div>
     </section>
   </Teleport>
@@ -40,13 +45,5 @@ if (!context) {
   max-width: 720px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.modal-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(10, 10, 10, 0.75);
-  backdrop-filter: blur(4px);
-  z-index: 30;
 }
 </style>

@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from "vue";
+import type { HTMLAttributes, Ref } from "vue";
 
 interface ModalOverlayProps {
   blur: number | `${number}px`;
@@ -19,6 +19,6 @@ export interface ModalProps extends /* @vue-ignore */ HTMLAttributes {
 }
 
 export interface ModalContext extends Pick<ModalProps, "overlay"> {
-  isOpen: boolean;
+  isOpen: Ref<boolean>;
   setOpen: (value?: boolean) => void;
 }

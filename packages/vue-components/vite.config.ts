@@ -1,7 +1,7 @@
 import { resolve } from "node:path";
-import { defineConfig } from "vite";
 
 import vue from "@vitejs/plugin-vue";
+import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
 const dtsOptions = {
@@ -11,6 +11,12 @@ const dtsOptions = {
 
 export default defineConfig({
   plugins: [vue(), dts(dtsOptions)],
+
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "src"),
+    },
+  },
 
   build: {
     lib: {

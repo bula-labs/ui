@@ -1,7 +1,7 @@
 import type { Plugin } from "vue";
 
-export * from "./components/button";
-export * from "./components/modal";
+export * from "./components";
+export * from "./shared";
 
 export default <Plugin>{
   install: (_app) => {

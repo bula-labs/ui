@@ -6,29 +6,37 @@ import { ContextKey } from "./config";
 
 const { id = "modal", overlay = true, ...props } = defineProps<ModalProps>();
 
-const context = ref<ModalContext>({
+const status = ref<boolean>(false);
+
+// const modalStatus = computed({
+//   get: () => status.value,
+//   set: (val: boolean) => {
+//     status.value = val;
+//   },
+// });
+
+// const context = ref<ModalContext>({
+//   overlay,
+//
+//   isOpen: false,
+//   setOpen(value) {
+//     if (typeof value === "boolean") {
+//       this.isOpen = value;
+//       return;
+//     }
+//
+//     this.isOpen = !this.isOpen;
+//   },
+// });
+
+const ctxVal: ModalContext = {
+  isOpen: status,
+  setOpen: () => status.value = !status.value,
+
   overlay,
+};
 
-  isOpen: false,
-  setOpen(value) {
-    this.isOpen = value ?? !this.isOpen;
-  },
-});
-
-/**
- *
- * ```typescript
- * const h1Props = { ariaDisabled: true, ariaDesc: 'asd' }
- * return <h1 {...h1Props}></h1>
- * ```
- *
- * ```typescript
- * return <h1 ariaDisabled='true', ariaDesc='asd'></h1>
- * ```
- *
- */
-
-provide(ContextKey, context);
+provide(ContextKey, ctxVal);
 </script>
 
 <template>

@@ -1,6 +1,14 @@
 <script setup lang="ts">
+import type { AsTag } from "@/components/fragment/types.ts";
+
 import type { ModalContext } from "./types";
+import { Primitive } from "@/components";
 import { inject } from "vue";
+
+const props = defineProps<{
+  asChild?: boolean;
+  as?: AsTag;
+}>();
 
 const context = inject<ModalContext>("ModalContext");
 if (!context) {
@@ -9,7 +17,7 @@ if (!context) {
 </script>
 
 <template>
-  <button @click="() => context.setOpen()" class="">
+  <Primitive v-bind="props" @click="context.setOpen">
     <slot />
-  </button>
+  </Primitive>
 </template>

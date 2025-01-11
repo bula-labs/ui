@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import type { ButtonProps } from "./model";
+// import type { ButtonProps } from "./model";
 
-defineProps<ButtonProps>();
+// const props = defineProps<ButtonProps>();
+// console.log(props.onClick(false));
 </script>
 
 <template>
-  <button class="bula-ui-btn"><slot /></button>
+  <button class="bula-ui-btn">
+    <slot />
+  </button>
 </template>
