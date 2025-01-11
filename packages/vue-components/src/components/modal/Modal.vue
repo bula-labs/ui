@@ -32,7 +32,7 @@ provide(ContextKey, context);
 </script>
 
 <template>
-  <div v-bind="props">
+  <div :id="id" v-bind="props">
     <slot />
   </div>
 </template>
