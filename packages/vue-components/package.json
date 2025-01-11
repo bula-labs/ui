@@ -3,7 +3,25 @@
   "private": true,
   "version": "1.0.0",
   "description": "",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/lib.js",
+  "module": "./dist/lib.mjs",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite build --watch",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "typescript": "catalog:v1",
+    "vue": "catalog:v1"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:v1",
+    "@vitejs/plugin-vue": "catalog:v1",
+    "@vue/tsconfig": "catalog:v1",
+    "vite": "catalog:v1",
+    "vite-plugin-dts": "^4.5.0"
   }
 }

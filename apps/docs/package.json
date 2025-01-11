@@ -13,6 +13,7 @@
         "vue-router": "catalog:v1"
     },
     "devDependencies": {
+        "@bula-ui/vue": "workspace:^",
         "@vitejs/plugin-vue": "catalog:v1",
         "@vue/tsconfig": "catalog:v1",
         "typescript": "catalog:v1",
