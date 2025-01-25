@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { BulaButton, Modal, ModalContent, ModalTrigger } from "@bula-ui/vue";
+import { Modal, ModalContent, ModalTrigger } from '@bula-ui/vue';
+
+import { BulaButton } from '@bula-ui/vue/button';
 </script>
 
 <template>
@@ -19,6 +21,4 @@ import { BulaButton, Modal, ModalContent, ModalTrigger } from "@bula-ui/vue";
   </Modal>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

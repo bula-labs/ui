@@ -1,18 +1,25 @@
-import config from '@antfu/eslint-config'
+import config from '@antfu/eslint-config';
+import tailwindcss from 'eslint-plugin-tailwindcss';
 
-export default config({
-  vue: true,
-  typescript: true,
+export default config(
+  {
+    vue: true,
+    typescript: true,
 
-  formatters: {
-    css: true,
-    svg: true,
-    html: true
+    formatters: {
+      css: true,
+      svg: true,
+      html: true,
+    },
+
+    stylistic: {
+      indent: 2,
+      semi: true,
+      quotes: 'single',
+    },
   },
-
-  stylistic: {
-    indent: 2,
-    semi: true,
-    quotes: 'double'
-  }
-})
+  {
+    name: 'tailwindcss:recommended',
+    ...tailwindcss.configs['flat/recommended'],
+  },
+);

@@ -1,7 +1,7 @@
-import type { Plugin } from "vue";
+import type { Plugin } from 'vue';
 
-export * from "./components";
-export * from "./shared";
+export * from './components';
+export * from './lib';
 
 export default <Plugin>{
   install: (_app) => {

@@ -1,8 +1,7 @@
-import { Fragment, type VNode } from "vue";
+import { Fragment, type VNode } from 'vue';
 
 export function renderSlotFragments(children?: VNode[]): VNode[] {
-  if (!children)
-    return [];
+  if (!children) return [];
 
   return children.flatMap((child) => {
     if (child.type === Fragment)

@@ -1,19 +1,19 @@
-import { renderSlotFragments } from "@/shared";
-import { cloneVNode, Comment, defineComponent, mergeProps } from "vue";
+import { renderSlotFragments } from '@/lib';
+import { cloneVNode, Comment, defineComponent, mergeProps } from 'vue';
 
 export default defineComponent({
-  name: "PrimitiveSlot",
+  name: 'PrimitiveSlot',
   inheritAttrs: false,
 
   setup(_, { attrs, slots }) {
     return () => {
-      if (!slots.default)
-        return null;
+      if (!slots.default) return null;
 
       const childrens = renderSlotFragments(slots.default());
-      const firstNonCommentChildrenIndex = childrens.findIndex(child => child.type !== Comment);
-      if (firstNonCommentChildrenIndex === -1)
-        return childrens;
+      const firstNonCommentChildrenIndex = childrens.findIndex(
+        (child) => child.type !== Comment,
+      );
+      if (firstNonCommentChildrenIndex === -1) return childrens;
 
       const firstNonCommentChildren = childrens[firstNonCommentChildrenIndex];
 
@@ -32,14 +32,13 @@ export default defineComponent({
       // It seems cloneVNode from Vue doesn't like overriding `onXXX` props.
       // So we have to do it manually.
       for (const prop in mergedProps) {
-        if (prop.startsWith("on")) {
+        if (prop.startsWith('on')) {
           cloned.props ||= {};
           cloned.props[prop] = mergedProps[prop];
         }
       }
 
-      if (childrens.length === 1)
-        return cloned;
+      if (childrens.length === 1) return cloned;
 
       childrens[firstNonCommentChildrenIndex] = cloned;
       return childrens;
